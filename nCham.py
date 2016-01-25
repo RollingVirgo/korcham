@@ -1,7 +1,6 @@
 from urllib.request import urlopen
 from urllib.parse import urlencode
 
-from random import randint
 from time import sleep
 
 def randfline(fpath):
@@ -19,6 +18,7 @@ def randfline(fpath):
 
 if __name__ == '__main__':
   from subprocess import Popen, PIPE
+  from random import uniform
   cnt=0
   logf = open('log.txt', 'a')
   while True:
@@ -37,6 +37,6 @@ if __name__ == '__main__':
       log=' '.join(list(map(str, (cnt, name, addr1, addr2, r.msg, b'signconfirm4_2.asp' in r.read()))))
       print(log)
       print(log, file=logf)
-      sleep(randint(1,5))
+      sleep(uniform(1,5))
     except KeyboardInterrupt:
       exit()
