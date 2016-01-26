@@ -41,4 +41,5 @@ if __name__ == '__main__':
       print(log, file=logf)
       sleep(uniform(1,5))
     except KeyboardInterrupt:
+      logf.close()
       exit()
