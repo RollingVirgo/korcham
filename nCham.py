@@ -5,15 +5,17 @@ from time import sleep
 
 def randfline(fpath):
   from random import randint
-  i=0
-  for l in open(fpath, encoding='euc-kr'):
-    i += 1
-  r=randint(1,i)
-  i=0
-  for l in open(fpath, encoding='euc-kr'):
-    i += 1
-    if i == r:
-      return l
+  with open(fpath, encoding='euc-kr') as f:
+    i=0
+    for l in f:
+      i += 1
+    r=randint(1,i)
+    f.seek(0)
+    i=0
+    for l in f:
+      i += 1
+      if i == r:
+        return l
   return ''
 
 if __name__ == '__main__':
